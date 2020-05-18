@@ -8,7 +8,7 @@ const TopBar = (props) => (
                 <logo>LaForge</logo>
             </Navbar.Brand>
     </Navbar>
-    <div class="nav-divider"/>
+    <div className="nav-divider"/>
   </Fragment>
 );
 
