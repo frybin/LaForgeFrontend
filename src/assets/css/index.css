@@ -5,6 +5,10 @@ body {
 
 logo {
   font-family: TNG_Credits;
+  font-style: italic;
+  font-size: xx-large;
+  font-weight: bold;
+  color: #f2c300;
 }
 
 @font-face {
@@ -21,4 +25,20 @@ logo {
     font-family: 'Roboto';
     font-weight: 900;
     src: local('Roboto'), url(../fonts/Roboto-Bold.ttf) format('truetype');
+}
+
+.bg-black {
+  background-color: black;
+}
+.nav-divider {
+  padding: 2px;
+  background-image: linear-gradient(to right, #f2c300, #5384f7);
+}
+.border-gradient {
+  border: 1px solid;
+  padding: .5rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-radius: 25px;
+  border-image-source: linear-gradient(to right, #f2c300, #5384f7);
 }
