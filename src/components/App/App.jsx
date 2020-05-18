@@ -2,11 +2,14 @@ import React from 'react';
 import logo from '../../assets/images/logo.svg';
 import './App.css';
 import TopBar from '../TopBar';
+import StarBackground from '../StarBackground'
+
 
 function App() {
   return (
     <div className="App">
     <TopBar />
+    <StarBackground /> 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
