@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: Roboto;
   background-color: black;
+  color: #F2C300;
 }
 
 #tsparticles {
@@ -35,3 +36,10 @@ body {
   background-color: black;
 }
 
+.btn-round {
+  color: black;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 40px;
+  background-color: #5486FB;
+}

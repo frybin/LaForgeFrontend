@@ -1,16 +1,18 @@
-import React from 'react';
-import logo from '../../assets/images/logo.svg';
+import React, { Fragment } from 'react';
+// import logo from '../../assets/images/logo.svg';
 import './App.css';
 import TopBar from '../TopBar';
 import StarBackground from '../StarBackground'
-import BoxBackground from '../BoxBackground';
+import HeaderTextButton from '../HeaderTextButton';
+import {Col} from 'react-bootstrap'
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
     <TopBar />
     <StarBackground /> 
-      <header className="App-header">
+    <div className="App">
+      {/* <header className="App-header">
       <BoxBackground>
         <img src={logo} className="App-logo" alt="logo" />
         </BoxBackground>
@@ -27,9 +29,12 @@ function App() {
           Learn React
         </a>
         </BoxBackground>
-      </header>
-      
+      </header> */}
+      <Col md={3}>
+        <HeaderTextButton/>
+      </Col>
     </div>
+    </Fragment>
   );
 }
 
