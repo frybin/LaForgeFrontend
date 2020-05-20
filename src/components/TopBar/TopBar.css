@@ -1,0 +1,11 @@
+.nav-divider {
+    padding: 2px;
+    background-image: linear-gradient(to right, #f2c300, #5384f7);
+  }
+.nav-logo {
+    font-family: TNG_Credits;
+    font-style: italic;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #f2c300;
+  }
