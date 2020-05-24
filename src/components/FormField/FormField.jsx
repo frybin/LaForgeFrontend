@@ -5,11 +5,11 @@ import './FormField.css';
 
 const FormField = (props) => (
     <Form.Group as={Row} controlId={props.name}>
-    <Form.Label column sm={3}>
-        {props.name}
+    <Form.Label column sm={4} className="formLabel">
+        {props.label}
     </Form.Label>
-    <Col sm={9}>
-      <Form.Control type={props.fieldType} placeholder={props.exampleText} className="formField"/>
+    <Col sm={8}>
+      <Form.Control name={props.name} type={props.fieldType} placeholder={props.exampleText} onChange={props.onChange} className="formField"/>
     </Col>
   </Form.Group>
 );

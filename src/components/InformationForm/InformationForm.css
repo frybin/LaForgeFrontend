@@ -1,0 +1,8 @@
+.btn-xl {
+    padding:  1.5rem 6rem;
+    font-size: 1.7rem;
+}
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }

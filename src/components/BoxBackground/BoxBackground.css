@@ -1,7 +1,7 @@
 .box-background {
     background-color: rgba(192, 192, 192, .1);
     border: 2px solid;
-    padding: 5rem;
+    padding: 3rem;
     border-image-slice: 1;
     border-image-source: linear-gradient(to right, #f2c300, #5384f7);
     margin-top: 5rem;

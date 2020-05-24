@@ -43,3 +43,7 @@ body {
   border-radius: 100px;
   background-color: #5486FB;
 }
+
+.btn {
+  padding:  1rem 5rem;
+}
