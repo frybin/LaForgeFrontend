@@ -12,26 +12,21 @@ function App() {
     <TopBar />
     <StarBackground /> 
     <div className="App">
-      {/* <header className="App-header">
-      <BoxBackground>
-        <img src={logo} className="App-logo" alt="logo" />
-        </BoxBackground>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <BoxBackground>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        </BoxBackground>
-      </header> */}
-      <Col md={3}>
-        <HeaderTextButton/>
+      {/* <Col lg={5}>
+        <HeaderTextButton 
+          header="Sign In" 
+          text="It an accunt was not alreasy created for you please contact the orginizer for your event and let them know."
+          buttonText="Sign In" 
+          buttonLink="#test"
+        />
+      </Col> */}
+      <Col lg={5}>
+        <HeaderTextButton 
+          header="Congratulations" 
+          text="You have signed into LaForge for the National Cyber Security Event. Go to your account in order to plug in your information."
+          buttonText="Profile" 
+          buttonLink="#profileTest"
+        />
       </Col>
     </div>
     </Fragment>

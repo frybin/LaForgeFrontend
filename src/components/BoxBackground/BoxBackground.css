@@ -1,10 +1,10 @@
-
 .box-background {
     background-color: rgba(192, 192, 192, .1);
-    border: 1.2px solid;
-    padding: .5rem;
+    border: 2px solid;
+    padding: 5rem;
     border-image-slice: 1;
-    border-width: 1px;
-    border-radius: 25px;
     border-image-source: linear-gradient(to right, #f2c300, #5384f7);
+    margin-top: 5rem;
+    align-items: center;
+    justify-content: center;
   }
