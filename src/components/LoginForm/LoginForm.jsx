@@ -13,7 +13,7 @@ class LoginForm extends PureComponent {
 
   
   onSubmit = (event) =>{
-    event.preventDefault();
+    // event.preventDefault();
     const { email, password} = this;
     console.log("Email: " + email)
     console.log("Password: " + password)
@@ -25,15 +25,14 @@ class LoginForm extends PureComponent {
         <h2>Sign In</h2>
         <p>Organizers and Volunteers</p>
         <br/>
-          <Form onSubmit={this.onSubmit}>
+          <Form action="/congrats" onSubmit={this.onSubmit}>
             <FormField name="email" label="Email" exampleText="Email Address" fieldType="email" onChange={this.onChange}/>
             <FormField name="password" label="Password" exampleText="*******" fieldType="password" onChange={this.onChange}/>
             <br/>
             <Form.Row>
               <Form.Group as={Col} controlId="formButtonBack">
-                <Button variant="outline-round" size="lg" href="#Back">Back</Button>
+                <Button variant="outline-round" size="lg" href="/">Back</Button>
               </Form.Group>
-
               <Form.Group as={Col} controlId="formButtonSubmit">
                 <Button variant="round" size="lg" type="submit">Submit</Button>
               </Form.Group>

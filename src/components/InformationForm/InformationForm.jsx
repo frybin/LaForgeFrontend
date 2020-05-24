@@ -24,8 +24,8 @@ class InformationForm extends PureComponent {
   render () {
     return(
       <BoxBackground>
-        <h2>Admin Account</h2>
-        <p>Account Infromation</p>
+        <h2>User Account</h2>
+        <p>Account Information</p>
         <br/>
           <Form onSubmit={this.onSubmit}>
             <FormField name="name" label="Full name" exampleText="Full name" fieldType="text" onChange={this.onChange}/>

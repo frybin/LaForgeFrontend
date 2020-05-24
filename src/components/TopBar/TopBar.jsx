@@ -8,9 +8,9 @@ const TopBar = (props) => (
             <Navbar.Brand href="/">
                 <div className="nav-logo">LaForge</div>
             </Navbar.Brand>
-    </Navbar>
-    <div className="nav-divider"/>
-  </Fragment>
+        </Navbar> 
+        <div className="nav-divider"/>
+    </Fragment>
 );
 
 export default TopBar;
