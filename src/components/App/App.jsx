@@ -4,7 +4,8 @@ import TopBar from '../TopBar';
 import StarBackground from '../StarBackground'
 // import HeaderTextButton from '../HeaderTextButton';
 import {Col} from 'react-bootstrap'
-import InformationForm from '../InformationForm';
+// import InformationForm from '../InformationForm';
+import LoginForm from '../LoginForm';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
         />
       </Col> */}
       <Col lg={4}>
-        <InformationForm/>
+        {/* <InformationForm/> */}
+        <LoginForm/>
       </Col>
     </div>
     </Fragment>
