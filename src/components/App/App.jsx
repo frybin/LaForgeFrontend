@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
-// import logo from '../../assets/images/logo.svg';
 import './App.css';
 import TopBar from '../TopBar';
 import StarBackground from '../StarBackground'
 import HeaderTextButton from '../HeaderTextButton';
 import {Col} from 'react-bootstrap'
+import FormField from '../FormField';
+import Form from 'react-bootstrap/Form'
+
 
 function App() {
   return (
@@ -28,6 +30,13 @@ function App() {
           buttonLink="#profileTest"
         />
       </Col>
+      <Form>
+      <FormField name="Full name" exampleText="Full name" fieldType="text"/>
+      <FormField name="Email" exampleText="Email Address" fieldType="email"/>
+      <FormField name="Phone Number" exampleText="Phone Number" fieldType="tel"/>
+      <FormField name="Organization" exampleText="Organization" fieldType="text"/>
+      <FormField name="GitHub Handle" exampleText="GitHub Handle" fieldType="text"/>
+      </Form>
     </div>
     </Fragment>
   );
