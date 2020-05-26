@@ -6,6 +6,8 @@ import HeaderTextButton from '../HeaderTextButton';
 import {Col} from 'react-bootstrap'
 import InformationForm from '../InformationForm';
 import LoginForm from '../LoginForm';
+import EditProfile from '../EditProfile';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -49,6 +51,9 @@ function App() {
               <Col lg={4}>
                 <InformationForm/>
               </Col>
+            </Route>
+            <Route path="/profile">
+              <EditProfile/>
             </Route>
           </Switch>
       </div>

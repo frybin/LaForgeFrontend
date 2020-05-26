@@ -45,15 +45,13 @@ body {
 }
 
 .btn-round:hover {
-  color: #fff;
-  background-color: #436bc8;
-  border-color: #436bc8;
+  background-color: #f2c300;
+  border-color: #f2c300;
 }
 
 .btn-round:focus, .btn-round.focus {
-  color: #fff;
-  background-color: #436bc8;
-  border-color: #436bc8;
+  background-color: #f2c300;
+  border-color: #f2c300;
   box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
