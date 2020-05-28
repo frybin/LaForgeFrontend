@@ -31,10 +31,10 @@ class LoginForm extends PureComponent {
             <br/>
             <Form.Row>
               <Form.Group as={Col} controlId="formButtonBack">
-                <Button variant="outline-round" size="lg" href="/">Back</Button>
+                <Button className="btn-padded" variant="outline-round" size="lg" href="/">Back</Button>
               </Form.Group>
               <Form.Group as={Col} controlId="formButtonSubmit">
-                <Button variant="round" size="lg" type="submit">Submit</Button>
+                <Button className="btn-padded" variant="round" size="lg" type="submit">Submit</Button>
               </Form.Group>
             </Form.Row>
           </Form>

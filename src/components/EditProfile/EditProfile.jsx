@@ -24,48 +24,76 @@ class EditProfile extends PureComponent {
     return(
       <Container>
       <Row>
-      <Col sm={9}>
-        <BoxBackground>
-          <h2>Sign In</h2>
-          <p>Organizers and Volunteers</p>
-          <br/>
-          <BlueBackground>
-            <Form action="/congrats" onSubmit={this.onSubmit}>
-              <FormField name="name" label="Full Name" exampleText="Name" fieldType="text" onChange={this.onChange}/>
-              <FormField name="email" label="Email" exampleText="example@example.com" fieldType="email" onChange={this.onChange}/>
-              <FormField name="number" label="Phone Number" exampleText="(123)456-7890" fieldType="tel" onChange={this.onChange}/>
-              <FormField name="org" label="Orginization" exampleText="RIT" fieldType="text" onChange={this.onChange}/>
-              <FormField name="git" label="Github Handle" exampleText="username" fieldType="text" onChange={this.onChange}/>
-              <br/>
-              <Form.Row>
-                <Form.Group as={Col} controlId="formButtonBack">
-                  <Button variant="outline-round" size="lg" href="/">Back</Button>
+      <Col sm={9} className="full-height">
+        <BoxBackground >
+          <Row> 
+            <Col lg={4}>
+              <h2>User Account</h2>
+            </Col>
+            <Button variant="round" size="lg" href="/" className="btn-fixed">Add to Group</Button> 
+          </Row>
+          <Col lg={12}>
+            <BlueBackground>
+              <Form action="/congrats" onSubmit={this.onSubmit}>
+                <FormField className="boldText" name="name" label="Full Name" exampleText="Name" fieldType="text" onChange={this.onChange}/>
+                <FormField className="boldText" name="email" label="Email" exampleText="example@example.com" fieldType="email" onChange={this.onChange}/>
+                <FormField className="boldText" name="number" label="Phone Number" exampleText="(123)456-7890" fieldType="tel" onChange={this.onChange}/>
+                <FormField className="boldText" name="org" label="Orginization" exampleText="RIT" fieldType="text" onChange={this.onChange}/>
+                <FormField className="boldText" name="git" label="Github Handle" exampleText="username" fieldType="text" onChange={this.onChange}/>
+                <Form.Group as={Row} controlId="roleSelect">
+                  <Form.Label column sm={4} className="formLabel boldText">Role</Form.Label>
+                  <Col sm={8}>
+                    <Form.Control as="select" custom className="formField" onChange={this.onChange}>
+                      <option> </option>
+                      <option>Admin</option>
+                      <option>Volunteer</option>
+                    </Form.Control>
+                  </Col>
                 </Form.Group>
-                <Form.Group as={Col} controlId="formButtonSubmit">
-                  <Button variant="round" size="lg" type="submit">Submit</Button>
-                </Form.Group>
-              </Form.Row>
-            </Form>
-          </BlueBackground>
+                <br/>
+                <Form.Row>
+                <Col style={{textAlign:"left"}}>
+                <Button variant="primary" size="sm" href="/" className="btn-padded">Back</Button>
+                </Col>
+                <Button variant="primary" size="md" href="/" style={{marginRight:"10px"}}>Delete</Button>
+                <Button variant="primary" size="md" href="/" >Save</Button>
+                </Form.Row>
+              </Form>
+            </BlueBackground>
+          </Col>
         </BoxBackground>
       </Col>
       <Col sm={3}>
         <Row>
           <BoxBackground>
-            <Button variant="round" size="md" href="/">Users</Button>
-            <br/>
-            <br/>
-            <Button variant="round" size="md" href="/">Groups</Button>
-            <br/>
-            <br/>
-            <Button variant="round" size="md" href="/">Account</Button>
-            <br/>
-            <br/>
-            <Button variant="round" size="md" href="/">Events</Button>
+            <Row>
+              <Col>
+                <Button className="btn-fixed" variant="round" size="lg" href="/">Users</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button className="btn-fixed" variant="round" size="lg" href="/">Groups</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button className="btn-fixed" variant="round" size="lg" href="/">Account</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button className="btn-fixed" variant="round" size="lg" href="/">Events</Button>
+              </Col>
+            </Row>
           </BoxBackground>
         </Row>
         <Row>
-          <BoxBackground></BoxBackground>
+          <BoxBackground className="small-margin">
+            <h3>National Cyber Security Event</h3>
+            <br/>
+            <h5>Date: 03/14/20</h5>
+          </BoxBackground>
         </Row>
       </Col>
       </Row>

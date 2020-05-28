@@ -26,7 +26,7 @@ function App() {
               <Col lg={5}>
                 <HeaderTextButton 
                   header="Sign In" 
-                  text="It an accunt was not alreasy created for you please contact the orginizer for your event and let them know."
+                  text="If an accunt was not already created for you please contact the orginizer for your event and let them know."
                   buttonText="Sign In" 
                   buttonLink="/signin"
                 />

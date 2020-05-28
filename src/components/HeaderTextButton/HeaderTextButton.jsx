@@ -9,7 +9,7 @@ const HeaderTextButton = (props) => (
         <br />
         <p>{props.text}</p>
         <br />
-        <Button variant="round" size="xl" href={props.buttonLink}>{props.buttonText}</Button>
+        <Button className="btn-padded" variant="round" size="xl" href={props.buttonLink}>{props.buttonText}</Button>
     </BoxBackground>
 );
 

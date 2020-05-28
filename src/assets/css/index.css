@@ -55,7 +55,7 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
-.btn {
+.btn-padded{
   padding:  1rem 5rem;
 }
 

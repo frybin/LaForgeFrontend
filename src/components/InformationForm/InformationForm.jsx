@@ -34,7 +34,7 @@ class InformationForm extends PureComponent {
             <FormField name="org" label="Organization" exampleText="Organization" fieldType="text" onChange={this.onChange}/>
             <FormField name="git" label="GitHub Handle" exampleText="GitHub Handle" fieldType="text" onChange={this.onChange}/>
             <br/>
-            <Button variant="round" size="lg" type="submit">Save</Button>
+            <Button className="btn-padded" variant="round" size="lg" type="submit">Save</Button>
           </Form>
       </BoxBackground>
     )}
