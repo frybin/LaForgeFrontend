@@ -1,5 +1,5 @@
 .box-background {
-    background-color: rgba(192, 192, 192, .1);
+    background-color: rgba(192, 192, 192, .15);
     border: 2px solid;
     padding: 3rem;
     border-image-slice: 1;

@@ -6,7 +6,7 @@ const StarBackground = (props) => (
     params={{
 	    "particles": {
 	        "number": {
-	            "value": 60,
+	            "value": 90,
 	            "density": {
 	                "enable": true,
 	                "value_area": 300

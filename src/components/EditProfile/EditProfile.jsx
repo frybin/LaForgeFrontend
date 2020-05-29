@@ -30,7 +30,7 @@ class EditProfile extends PureComponent {
             <Col lg={4}>
               <h2>User Account</h2>
             </Col>
-            <Button variant="round" size="lg" href="/" className="btn-fixed">Add to Group</Button> 
+            <Button variant="round-reverse" size="lg" href="/" className="btn-fixed">Add to Group</Button> 
           </Row>
           <Col lg={12}>
             <BlueBackground>
@@ -41,7 +41,7 @@ class EditProfile extends PureComponent {
                 <FormField className="boldText" name="org" label="Orginization" exampleText="RIT" fieldType="text" onChange={this.onChange}/>
                 <FormField className="boldText" name="git" label="Github Handle" exampleText="username" fieldType="text" onChange={this.onChange}/>
                 <Form.Group as={Row} controlId="roleSelect">
-                  <Form.Label column sm={4} className="formLabel boldText">Role</Form.Label>
+                  <Form.Label column sm={3} className="formLabel boldText">Role</Form.Label>
                   <Col sm={8}>
                     <Form.Control as="select" custom className="formField" onChange={this.onChange}>
                       <option> </option>
@@ -52,11 +52,13 @@ class EditProfile extends PureComponent {
                 </Form.Group>
                 <br/>
                 <Form.Row>
-                <Col style={{textAlign:"left"}}>
-                <Button variant="primary" size="sm" href="/" className="btn-padded">Back</Button>
+                <Col sm={5}>
+                  <Button variant="round" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300"}}>Back</Button>
                 </Col>
-                <Button variant="primary" size="md" href="/" style={{marginRight:"10px"}}>Delete</Button>
-                <Button variant="primary" size="md" href="/" >Save</Button>
+                <Col>
+                <Button variant="round-reverse" className="btn-fixed" href="/" style={{marginRight:"10px",background:"#c19c00"}}>Delete</Button>
+                <Button variant="round-blue" className="btn-fixed" href="/" >Save</Button>
+                </Col>
                 </Form.Row>
               </Form>
             </BlueBackground>
@@ -68,7 +70,7 @@ class EditProfile extends PureComponent {
           <BoxBackground>
             <Row>
               <Col>
-                <Button className="btn-fixed" variant="round" size="lg" href="/">Users</Button>
+                <Button className="btn-fixed" variant="round" size="lg" href="/" active>Users</Button>
               </Col>
             </Row>
             <Row>

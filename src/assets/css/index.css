@@ -44,15 +44,36 @@ body {
   background-color: #5486FB;
 }
 
-.btn-round:hover {
+.btn-round:hover, .btn-round:not(:disabled):not(.disabled).active, .btn-round:focus, .btn-round.focus{
   background-color: #f2c300;
   border-color: #f2c300;
 }
 
-.btn-round:focus, .btn-round.focus {
+.btn-round-reverse {
+  color: black;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 100px;
   background-color: #f2c300;
+}
+
+.btn-round-reverse:hover, .btn-round-reverse:not(:disabled):not(.disabled).active, .btn-round-reverse:focus, .btn-round-reverse.focus{
+  background-color: #5486FB;
+  border-color: #5486FB;
+}
+
+.btn-round-blue {
+  color: black;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 100px;
+  background-color: #f2c300;
+}
+
+.btn-round-blue:hover, .btn-round-blue:focus, .btn-round-blue.focus , .btn-round-blue:not(:disabled):not(.disabled).active {
+  color: white;
+  background-color: #4b78e1;
   border-color: #f2c300;
-  box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
 .btn-padded{

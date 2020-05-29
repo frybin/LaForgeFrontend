@@ -12,7 +12,7 @@ class InformationForm extends PureComponent {
 
   
   onSubmit = (event) =>{
-    event.preventDefault();
+    // event.preventDefault();
     const { name, email, number, org, git} = this;
     console.log("Name: " + name)
     console.log("Email: " + email)
@@ -27,7 +27,7 @@ class InformationForm extends PureComponent {
         <h2>User Account</h2>
         <p>Account Information</p>
         <br/>
-          <Form onSubmit={this.onSubmit}>
+          <Form action="/profile" onSubmit={this.onSubmit}>
             <FormField name="name" label="Full name" exampleText="Full name" fieldType="text" onChange={this.onChange}/>
             <FormField name="email" label="Email" exampleText="Email Address" fieldType="email" onChange={this.onChange}/>
             <FormField name="number" label="Phone Number" exampleText="Phone Number" fieldType="tel" onChange={this.onChange}/>
