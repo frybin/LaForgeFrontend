@@ -7,6 +7,7 @@ import {Col} from 'react-bootstrap'
 import InformationForm from '../InformationForm';
 import LoginForm from '../LoginForm';
 import EditProfile from '../EditProfile';
+import UserTable from '../UserTable';
 
 import {
   BrowserRouter as Router,
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route path="/profile">
               <EditProfile/>
+            </Route>
+            <Route path="/table">
+              <UserTable/>
             </Route>
           </Switch>
       </div>

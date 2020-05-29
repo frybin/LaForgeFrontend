@@ -35,15 +35,15 @@ class EditProfile extends PureComponent {
           <Col lg={12}>
             <BlueBackground>
               <Form action="/congrats" onSubmit={this.onSubmit}>
-                <FormField className="boldText" name="name" label="Full Name" exampleText="Name" fieldType="text" onChange={this.onChange}/>
-                <FormField className="boldText" name="email" label="Email" exampleText="example@example.com" fieldType="email" onChange={this.onChange}/>
-                <FormField className="boldText" name="number" label="Phone Number" exampleText="(123)456-7890" fieldType="tel" onChange={this.onChange}/>
-                <FormField className="boldText" name="org" label="Orginization" exampleText="RIT" fieldType="text" onChange={this.onChange}/>
-                <FormField className="boldText" name="git" label="Github Handle" exampleText="username" fieldType="text" onChange={this.onChange}/>
+                <FormField className="boldText" name="name" label="Full Name" exampleText="Name" fieldType="text" defaultValue="Jack James" onChange={this.onChange}/>
+                <FormField className="boldText" name="email" label="Email" exampleText="example@example.com" fieldType="email" defaultValue="jack.james@g.net" onChange={this.onChange}/>
+                <FormField className="boldText" name="number" label="Phone Number" exampleText="(123)456-7890" fieldType="tel" defaultValue="555-555-5555" onChange={this.onChange}/>
+                <FormField className="boldText" name="org" label="Orginization" exampleText="RIT" fieldType="text" defaultValue="RIT" onChange={this.onChange}/>
+                <FormField className="boldText" name="git" label="Github Handle" exampleText="username" fieldType="text" defaultValue="jack.james123" onChange={this.onChange}/>
                 <Form.Group as={Row} controlId="roleSelect">
                   <Form.Label column sm={3} className="formLabel boldText">Role</Form.Label>
                   <Col sm={8}>
-                    <Form.Control as="select" custom className="formField" onChange={this.onChange}>
+                    <Form.Control as="select" custom className="formField" defaultValue="Volunteer" onChange={this.onChange}>
                       <option> </option>
                       <option>Admin</option>
                       <option>Volunteer</option>
