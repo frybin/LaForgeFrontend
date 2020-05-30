@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import BoxBackground from '../BoxBackground/BoxBackground';
-import './AdminProfile.css';
+import './UserProfile.css';
 import FormField from '../FormField/FormField';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {Col, Container, Row} from 'react-bootstrap'
 import BlueBackground from '../BlueBackground/BlueBackground';
 
-class AdminProfile extends PureComponent { 
+class UserProfile extends PureComponent { 
   onChange = (e) => {
     this[e.target.name] =  e.target.value.trim();
   };
@@ -27,10 +27,9 @@ class AdminProfile extends PureComponent {
       <Col sm={9} className="full-height">
         <BoxBackground >
           <Row> 
-            <Col lg={3}>
-              <h2>User Account</h2>
+            <Col lg={2}>
+              <h2>Profile</h2>
             </Col>
-            <Button variant="round-reverse" size="lg" href="/" className="btn-fixed">Add to Group</Button> 
           </Row>
           <Col lg={12}>
             <BlueBackground>
@@ -51,13 +50,26 @@ class AdminProfile extends PureComponent {
                   </Col>
                 </Form.Group>
                 <br/>
-                <Form.Row>
-                <Col sm={7}>
-                  <Button variant="round" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300",width:"5vw"}}>Back</Button>
+                <Row className="centerFlex">
+                <Col sm={2}>
+                <Button variant="round" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300",width:"5vw"}}>Back</Button>
                 </Col>
-                <Col>
-                <Button variant="round-reverse" className="btn-fixed" href="/" style={{marginRight:"10px",background:"#c19c00",width:"5vw"}}>Delete</Button>
-                <Button variant="round-blue" className="btn-fixed" href="/" style={{width:"12vw"}}>Save</Button>
+                <Col sm={5}>
+                <Button variant="round-blue" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300",width:"14vw"}}>Save</Button>
+                </Col>
+                </Row>
+              </Form>
+            </BlueBackground>
+            <BlueBackground>
+              
+              <Form action="/congrats" onSubmit={this.onSubmit}>
+              <Form.Row>
+                <Col sm={8}>
+                <FormField className="boldText" name="oldPass" label="Current Password" fieldType="password" defaultValue="Jack James" onChange={this.onChange}/>
+                <FormField className="boldText" name="newPass" label="New Password" fieldType="password" defaultValue="jack.james@g.net" onChange={this.onChange}/>
+                </Col>
+                <Col sm={4} className="centerFlex">
+                  <Button variant="round" className="btn-fixed medium-text" href="/" style={{background:"black",color:"#f2c300",width:"12vw"}}>Save New Password</Button>
                 </Col>
                 </Form.Row>
               </Form>
@@ -70,22 +82,22 @@ class AdminProfile extends PureComponent {
           <BoxBackground>
             <Row>
               <Col>
-                <Button className="btn-fixed" variant="round" size="lg" href="/table" active>Users</Button>
+                <Button className="btn-fixed" variant="round" size="lg" href="/" >Home</Button>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Button className="btn-fixed" variant="round" size="lg" href="/">Groups</Button>
+                <Button className="btn-fixed" variant="round" size="lg" href="/" active >Account</Button>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Button className="btn-fixed" variant="round" size="lg" href="/">Account</Button>
+                <Button className="btn-fixed" variant="round" size="lg" href="/">Group</Button>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Button className="btn-fixed" variant="round" size="lg" href="/">Events</Button>
+                <Button className="btn-fixed" variant="round" size="lg" href="/table">Users</Button>
               </Col>
             </Row>
           </BoxBackground>
@@ -103,4 +115,4 @@ class AdminProfile extends PureComponent {
     )}
 }
 
-export default AdminProfile;
+export default UserProfile;

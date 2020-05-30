@@ -12,7 +12,13 @@
 .small-margin {
     margin-top: 1rem;
   }
-.boldText{
+.medium-text{
     font-weight: bold;
-    font-size: large;
+    font-size: medium;
+}
+
+.centerFlex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

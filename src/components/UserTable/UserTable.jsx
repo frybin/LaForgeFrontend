@@ -181,7 +181,7 @@ class UserTable extends PureComponent {
         </a>
         </Col>
         <Col sm={3}>
-        <a href={"/"+row.id}> 
+        <a href={"/adminProfile?"+row.id}> 
             <FontAwesomeIcon icon={faCog} color="black" size="2x" />
         </a>
         </Col>

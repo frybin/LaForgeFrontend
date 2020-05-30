@@ -8,6 +8,7 @@ import InformationForm from '../InformationForm';
 import LoginForm from '../LoginForm';
 import AdminProfile from '../AdminProfile';
 import UserTable from '../UserTable';
+import UserProfile from '../UserProfile';
 
 import {
   BrowserRouter as Router,
@@ -65,10 +66,16 @@ function App() {
               </Col>
               </div>
             </Route>
-            <Route path="/profile">
+            <Route path="/adminProfile">
             <TopBar rightText="National Cyber Security Event " rightLink={navLink}  />
             <div className="App">
               <AdminProfile/>
+              </div>
+            </Route>
+            <Route path="/profile">
+            <TopBar rightText="National Cyber Security Event " rightLink={navLink}  />
+            <div className="App">
+              <UserProfile/>
               </div>
             </Route>
             <Route path="/table">
