@@ -5,11 +5,62 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import BoxBackground from '../BoxBackground/BoxBackground';
 import faker from 'faker';
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle as fasTimesCircle, faCog} from '@fortawesome/free-solid-svg-icons'
 import { faTimesCircle as farTimesCircle} from '@fortawesome/free-regular-svg-icons'
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form'
+
+const pageButtonRenderer = ({
+  page,
+  active,
+  disable,
+  title,
+  onPageChange
+}) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    onPageChange(page);
+  };
+  const activeStyle = {};
+  if (active) {
+    activeStyle.backgroundColor = 'black';
+    activeStyle.color = 'white';
+  } else {
+    activeStyle.backgroundColor = 'gray';
+    activeStyle.color = 'black';
+  }
+  if (typeof page === 'string') {
+    activeStyle.backgroundColor = 'white';
+    activeStyle.color = 'black';
+  }
+  return (
+    <li className="page-item">
+      <a href="#test" onClick={ handleClick } style={ activeStyle }>{ page }</a>
+    </li>
+  );
+};
+
+const MySearch = (props) => {
+  let input;
+  const handleClick = () => {
+    props.onSearch(input.value);
+  };
+  return (
+    <Row>
+    <Col sm={6}>
+      <Form.Control type="text" ref={ n => input = n } placeholder="Search"  className="formField"/>
+    </Col>
+    <Col sm={2}>
+      <Button variant="round" className="btn-fixed" onClick={ handleClick } style={{background:"black",color:"#f2c300"}}>Search</Button>
+    </Col>
+    <Col sm={4}>
+      <Button variant="round-blue" className="btn-fixed" style={{width:"15vw"}} href="/" >Add User</Button>
+    </Col>
+    </Row>
+  );
+};
 
 const createUser = () => ({
   id: faker.random.uuid(),
@@ -24,7 +75,7 @@ const createUsers = (numUsers = 5) =>
   new Array(numUsers).fill(undefined).map(createUser);
 
 const fakeUsers = createUsers(100);
-const { SearchBar } = Search;
+
 class UserTable extends PureComponent { 
 
    columns = [{
@@ -99,13 +150,14 @@ class UserTable extends PureComponent {
     // pageStartIndex: 0,
     // alwaysShowAllBtns: true, // Always show next and previous button
     withFirstAndLast: false, // Hide the going to First and Last page button
-    // hideSizePerPage: true, // Hide the sizePerPage dropdown always
+    hideSizePerPage: true, // Hide the sizePerPage dropdown always
     // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
     firstPageText:'First',
     prePageText:  'Previous',
     nextPageText: 'Next',
     lastPageText: 'Last',
-    disablePageTitle: true
+    disablePageTitle: true,
+    pageButtonRenderer
   };
   render () {
     return(
@@ -119,7 +171,7 @@ class UserTable extends PureComponent {
             {
               props => (
                 <div>
-                  <SearchBar { ...props.searchProps } />
+                  <MySearch { ...props.searchProps } />
                   <hr />
                   <BootstrapTable 
                     pagination={ paginationFactory(this.options)}

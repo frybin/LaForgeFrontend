@@ -53,11 +53,11 @@ class EditProfile extends PureComponent {
                 <br/>
                 <Form.Row>
                 <Col sm={5}>
-                  <Button variant="round" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300"}}>Back</Button>
+                  <Button variant="round" className="btn-fixed" href="/" style={{background:"black",color:"#f2c300",width:"5vw"}}>Back</Button>
                 </Col>
                 <Col>
-                <Button variant="round-reverse" className="btn-fixed" href="/" style={{marginRight:"10px",background:"#c19c00"}}>Delete</Button>
-                <Button variant="round-blue" className="btn-fixed" href="/" >Save</Button>
+                <Button variant="round-reverse" className="btn-fixed" href="/" style={{marginRight:"10px",background:"#c19c00",width:"5vw"}}>Delete</Button>
+                <Button variant="round-blue" className="btn-fixed" href="/" style={{width:"12vw"}}>Save</Button>
                 </Col>
                 </Form.Row>
               </Form>

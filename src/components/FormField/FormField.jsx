@@ -9,7 +9,14 @@ const FormField = (props) => (
         {props.label}
     </Form.Label>
     <Col sm={8}>
-      <Form.Control name={props.name} type={props.fieldType} placeholder={props.exampleText} onChange={props.onChange}  defaultValue={props.defaultValue ? props.defaultValue : ""} className="formField"/>
+      <Form.Control 
+        name={props.name} 
+        type={props.fieldType} 
+        placeholder={props.exampleText} 
+        onChange={props.onChange}  
+        defaultValue={props.defaultValue ? props.defaultValue : ""} 
+        className="formField"
+      />
     </Col>
   </Form.Group>
 );

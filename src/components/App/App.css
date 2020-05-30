@@ -39,3 +39,11 @@
     transform: rotate(360deg);
   }
 }
+
+.formField {
+  letter-spacing: 1px;
+  border-radius: 100px;
+  background-color: #8aa4e1;
+  color: black;
+  border: #8aa4e1;
+}
