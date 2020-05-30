@@ -13,3 +13,16 @@
     align-items: center;
     justify-content: center;
 }
+
+.black-background {
+    background-color: black;
+    padding: 1rem;
+    padding-top: 2rem;
+    max-width: 90%;
+    margin-bottom: 5rem;
+  }
+
+  .react-bootstrap-table-page-btns-ul{
+    align-items: right;
+    justify-content: right;
+  }

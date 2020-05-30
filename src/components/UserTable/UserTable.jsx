@@ -24,20 +24,14 @@ const pageButtonRenderer = ({
     onPageChange(page);
   };
   const activeStyle = {};
-  if (active) {
-    activeStyle.backgroundColor = 'black';
-    activeStyle.color = 'white';
-  } else {
-    activeStyle.backgroundColor = 'gray';
-    activeStyle.color = 'black';
-  }
   if (typeof page === 'string') {
-    activeStyle.backgroundColor = 'white';
-    activeStyle.color = 'black';
+    activeStyle.backgroundColor = 'black';
+    activeStyle.color = '#5486FB';
   }
   return (
     <li className="page-item">
-      <a href="#test" onClick={ handleClick } style={ activeStyle }>{ page }</a>
+      {/* <a href="#test" onClick={ handleClick } style={ activeStyle }>{ page }</a> */}
+      <Button variant="table" onClick={ handleClick } style={ activeStyle } active={active ? true : false}>{ page }</Button>
     </li>
   );
 };
@@ -53,7 +47,7 @@ const MySearch = (props) => {
       <Form.Control type="text" ref={ n => input = n } placeholder="Search"  className="formField"/>
     </Col>
     <Col sm={2}>
-      <Button variant="round" className="btn-fixed" onClick={ handleClick } style={{background:"black",color:"#f2c300"}}>Search</Button>
+      <Button variant="round" className="btn-fixed" onClick={ handleClick } style={{background:"black",color:"#f2c300",borderColor:"#f2c300"}}>Search</Button>
     </Col>
     <Col sm={4}>
       <Button variant="round-blue" className="btn-fixed" style={{width:"15vw"}} href="/" >Add User</Button>
@@ -140,11 +134,13 @@ class UserTable extends PureComponent {
       </Row>
     ),
   }];
+
   rowClasses = (row, rowIndex) => {
     if (rowIndex % 2 === 0) 
       return 'table-row-even';
     return 'table-row-odd';
   };
+
   options = {
     // paginationSize: 4,
     // pageStartIndex: 0,
@@ -159,9 +155,10 @@ class UserTable extends PureComponent {
     disablePageTitle: true,
     pageButtonRenderer
   };
+
   render () {
     return(
-      <BoxBackground>
+      <BoxBackground className="black-background">
           <ToolkitProvider
           keyField="id"
           data={ fakeUsers }

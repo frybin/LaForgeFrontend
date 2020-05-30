@@ -49,6 +49,19 @@ body {
   border-color: #f2c300;
 }
 
+.btn-table {
+  color: #f2c300;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.btn-table:not(:disabled):not(.disabled).active{
+  background-color: #5486FB;
+  border-color: #5486FB;
+}
+
 .btn-round-reverse {
   color: black;
   letter-spacing: 1px;
@@ -56,6 +69,7 @@ body {
   border-radius: 100px;
   background-color: #f2c300;
 }
+
 
 .btn-round-reverse:hover, .btn-round-reverse:not(:disabled):not(.disabled).active, .btn-round-reverse:focus, .btn-round-reverse.focus{
   background-color: #5486FB;
