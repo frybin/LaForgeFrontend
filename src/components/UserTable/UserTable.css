@@ -1,6 +1,15 @@
 .table-row-even{
-    background-color: #5486fb;
+    background-color: #4772d5;
+    word-wrap: break-word;
 }
 .table-row-odd{
-    background-color: #4772d5;
+    background-color: #5486fb;
+    word-wrap: break-word;
+}
+.table-rounded{
+    border-radius: 20px 20px 0px 0px;
+}
+.row-centered{
+    align-items: center;
+    justify-content: center;
 }

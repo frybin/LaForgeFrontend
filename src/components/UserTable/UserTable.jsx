@@ -6,6 +6,10 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import BoxBackground from '../BoxBackground/BoxBackground';
 import faker from 'faker';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle as fasTimesCircle, faCog} from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle as farTimesCircle} from '@fortawesome/free-regular-svg-icons'
+import { Row, Col } from 'react-bootstrap';
 
 const createUser = () => ({
   id: faker.random.uuid(),
@@ -26,80 +30,112 @@ class UserTable extends PureComponent {
    columns = [{
     dataField: 'name',
     text: 'Name',
-    classes: (cell, row, rowIndex, colIndex) => {
-      if (rowIndex % 2 === 0) return 'table-row-even';
-      return 'table-row-odd';
-    },
-    headerClasses: (column, colIndex) => {
-      return 'table-row-odd';
+    sort: true,
+    align: () => {
+      return 'left';
     }
   }, {
     dataField: 'email',
     text: 'Email',
-    classes: (cell, row, rowIndex, colIndex) => {
-      if (rowIndex % 2 === 0) return 'table-row-even';
-      return 'table-row-odd';
-    },
-    headerClasses: (column, colIndex) => {
-      return 'table-row-odd';
+    sort: true,
+    align: () => {
+      return 'left';
     }
   }, {
-    dataField: 'address',
-    text: 'Address',
-    classes: (cell, row, rowIndex, colIndex) => {
-      if (rowIndex % 2 === 0) return 'table-row-even';
-      return 'table-row-odd';
-    },
-    headerClasses: (column, colIndex) => {
-      return 'table-row-odd';
+    dataField: 'phone',
+    text: 'Phone',
+    align: () => {
+      return 'left';
     }
   }, {
-    seledataFieldctor: 'bio',
-    text: 'Bio',
-    classes: (cell, row, rowIndex, colIndex) => {
-      if (rowIndex % 2 === 0) return 'table-row-even';
-      return 'table-row-odd';
-    },
-    headerClasses: (column, colIndex) => {
-      return 'table-row-odd';
+    seledataFieldctor: 'github',
+    text: 'Githib',
+    sort: true,
+    align: () => {
+      return 'left';
     }
   }, {
-    dataField: 'image',
-    text: 'Image',
-    classes: (cell, row, rowIndex, colIndex) => {
-      if (rowIndex % 2 === 0) return 'table-row-even';
-      return 'table-row-odd';
-    },
-    headerClasses: (column, colIndex) => {
-      return 'table-row-odd';
+    dataField: 'org',
+    text: 'Orginization',
+    sort: true,
+    align: () => {
+      return 'left';
     }
+  }, {
+    dataField: 'role',
+    text: 'Role',
+    sort: true,
+    align: () => {
+      return 'left';
+    }
+  }, {
+    dataField: 'action',
+    text: 'Action',
+    formatter: (cell, row, rowIndex, extraData) => (
+      <Row className="row-centered">
+        <Col sm={3}>
+        <a href={"/"+row.id}> 
+          <span className="fa-layers fa-fw">
+            <FontAwesomeIcon icon={farTimesCircle}  color="white" size="2x" />
+            <FontAwesomeIcon icon={fasTimesCircle} color="#f44336" size="2x" />
+          </span>
+        </a>
+        </Col>
+        <Col sm={5}>
+        <a href={"/"+row.id}> 
+            <FontAwesomeIcon icon={faCog} color="black" size="2x" />
+        </a>
+        </Col>
+      </Row>
+    ),
   }];
-
-
+  rowClasses = (row, rowIndex) => {
+    if (rowIndex % 2 === 0) 
+      return 'table-row-even';
+    return 'table-row-odd';
+  };
+  options = {
+    // paginationSize: 4,
+    // pageStartIndex: 0,
+    // alwaysShowAllBtns: true, // Always show next and previous button
+    withFirstAndLast: false, // Hide the going to First and Last page button
+    // hideSizePerPage: true, // Hide the sizePerPage dropdown always
+    // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
+    firstPageText:'First',
+    prePageText:  'Previous',
+    nextPageText: 'Next',
+    lastPageText: 'Last',
+    disablePageTitle: true
+  };
   render () {
     return(
       <BoxBackground>
           <ToolkitProvider
-  keyField="id"
-  data={ fakeUsers }
-  columns={ this.columns }
-  search
-  
->
-  {
-    props => (
-      <div>
-        <h3>Input something at below input field:</h3>
-        <SearchBar { ...props.searchProps } />
-        <hr />
-        <BootstrapTable pagination={ paginationFactory()}
-          { ...props.baseProps }
-        />
-      </div>
-    )
-  }
-</ToolkitProvider>
-
+          keyField="id"
+          data={ fakeUsers }
+          columns={ this.columns }
+          search
+          >
+            {
+              props => (
+                <div>
+                  <SearchBar { ...props.searchProps } />
+                  <hr />
+                  <BootstrapTable 
+                    pagination={ paginationFactory(this.options)}
+                    bordered={ false }
+                    noDataIndication="Table is Empty" 
+                    headerWrapperClasses="table-row-odd table-rounded" 
+                    classes="table-borderless rounded-circle"
+                    tabIndexCell
+                    wrapperClasses="rounded-circle"
+                    rowClasses={ this.rowClasses }
+                    { ...props.baseProps }
+                  />
+                </div>
+              )
+            }
+          </ToolkitProvider>
       </BoxBackground>
     )}
 }
