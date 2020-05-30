@@ -131,3 +131,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 
+.large-background{
+  max-width: 90%;
+}

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './UserTable.css';
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -9,8 +9,9 @@ import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle as fasTimesCircle, faCog} from '@fortawesome/free-solid-svg-icons'
 import { faTimesCircle as farTimesCircle} from '@fortawesome/free-regular-svg-icons'
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
+import FormField from '../FormField';
 
 const pageButtonRenderer = ({
   page,
@@ -50,7 +51,7 @@ const MySearch = (props) => {
       <Button variant="round" className="btn-fixed" onClick={ handleClick } style={{background:"black",color:"#f2c300",borderColor:"#f2c300"}}>Search</Button>
     </Col>
     <Col sm={4}>
-      <Button variant="round-blue" className="btn-fixed" style={{width:"15vw"}} href="/" >Add User</Button>
+      <Button variant="round-blue" className="btn-fixed" style={{width:"15vw"}} onClick={props.addUser} >Add User</Button>
     </Col>
     </Row>
   );
@@ -70,7 +71,60 @@ const createUsers = (numUsers = 5) =>
 
 const fakeUsers = createUsers(100);
 
+class MyVerticallyCenteredModal extends PureComponent {
+  onChange = (e) => {
+    this[e.target.name] =  e.target.value.trim();
+  };
+
+  
+  onSubmit = (event) =>{
+    // event.preventDefault();
+    const { email, password} = this;
+    console.log("Email: " + email)
+    console.log("Password: " + password)
+  }
+  render () {
+  return (
+    <Modal
+      {...this.props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+    <BoxBackground className="module-background">
+      <Modal.Body>
+        <Form action="/congrats" onSubmit={this.onSubmit}>
+          <FormField className="boldText" name="email" label="Email" exampleText="example@example.com" fieldType="email" defaultValue="jack.james@g.net" onChange={this.onChange}/>
+          <Form.Group as={Row} controlId="roleSelect">
+            <Form.Label column sm={3} className="formLabel boldText">Role</Form.Label>
+            <Col sm={8}>
+              <Form.Control as="select" custom className="formField" defaultValue="Volunteer" onChange={this.onChange}>
+                <option> </option>
+                <option>Admin</option>
+                <option>Volunteer</option>
+              </Form.Control>
+            </Col>
+          </Form.Group>
+          <br/>
+          <Form.Row>
+          <Col>
+            <Button variant="round" className="btn-fixed" onClick={ this.props.onHide}  style={{background:"black",color:"#f2c300",borderColor:"#f2c300"}}>Back</Button>
+          </Col>
+          <Col>
+          <Button variant="round" className="btn-fixed" href="/" style={{width:"12vw"}}>Save</Button>
+          </Col>
+          </Form.Row>
+        </Form>
+      </Modal.Body>
+      </BoxBackground>
+    </Modal>
+  )}
+}
+
 class UserTable extends PureComponent { 
+  state = { show: false}
+  handleClose = () => this.setState({show: false});
+  handleShow = () => this.setState({show: true});
 
    columns = [{
     dataField: 'name',
@@ -118,7 +172,7 @@ class UserTable extends PureComponent {
     text: 'Action',
     formatter: (cell, row, rowIndex, extraData) => (
       <Row className="row-centered">
-        <Col sm={3}>
+        <Col sm={2}>
         <a href={"/"+row.id}> 
           <span className="fa-layers fa-fw">
             <FontAwesomeIcon icon={farTimesCircle}  color="white" size="2x" />
@@ -126,7 +180,7 @@ class UserTable extends PureComponent {
           </span>
         </a>
         </Col>
-        <Col sm={5}>
+        <Col sm={3}>
         <a href={"/"+row.id}> 
             <FontAwesomeIcon icon={faCog} color="black" size="2x" />
         </a>
@@ -158,7 +212,12 @@ class UserTable extends PureComponent {
 
   render () {
     return(
-      <BoxBackground className="black-background">
+      <Fragment>
+      <MyVerticallyCenteredModal
+            show={this.state.show}
+            onHide={this.handleClose}
+          />
+      <BoxBackground className="black-background large-background">
           <ToolkitProvider
           keyField="id"
           data={ fakeUsers }
@@ -168,16 +227,16 @@ class UserTable extends PureComponent {
             {
               props => (
                 <div>
-                  <MySearch { ...props.searchProps } />
+                  <MySearch { ...props.searchProps } addUser={this.handleShow}/>
                   <hr />
                   <BootstrapTable 
                     pagination={ paginationFactory(this.options)}
                     bordered={ false }
                     noDataIndication="Table is Empty" 
                     headerWrapperClasses="table-row-odd table-rounded" 
-                    classes="table-borderless rounded-circle"
+                    classes="table-borderless"
                     tabIndexCell
-                    wrapperClasses="rounded-circle"
+                    wrapperClasses=" "
                     rowClasses={ this.rowClasses }
                     { ...props.baseProps }
                   />
@@ -186,6 +245,7 @@ class UserTable extends PureComponent {
             }
           </ToolkitProvider>
       </BoxBackground>
+      </Fragment>
     )}
 }
 
