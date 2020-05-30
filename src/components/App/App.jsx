@@ -6,7 +6,7 @@ import HeaderTextButton from '../HeaderTextButton';
 import {Col} from 'react-bootstrap'
 import InformationForm from '../InformationForm';
 import LoginForm from '../LoginForm';
-import EditProfile from '../EditProfile';
+import AdminProfile from '../AdminProfile';
 import UserTable from '../UserTable';
 
 import {
@@ -16,14 +16,16 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const navLink=<a href="/profile">/ Profile</a>
   return (
     <Fragment>
-    <TopBar />
+    
     <StarBackground /> 
     <Router>
-      <div className="App">
         <Switch>
             <Route exact path="/">
+            <TopBar  />
+            <div className="App">
               <Col lg={5}>
                 <HeaderTextButton 
                   header="Sign In" 
@@ -32,13 +34,19 @@ function App() {
                   buttonLink="/signin"
                 />
               </Col> 
+              </div>
             </Route>
             <Route path="/signin">
+            <TopBar />
+            <div className="App">
               <Col lg={4}>
                 <LoginForm/>
               </Col>
+              </div>
             </Route>
             <Route path="/congrats">
+            <TopBar r />
+            <div className="App">
               <Col lg={5}>
                 <HeaderTextButton 
                   header="Congratulations" 
@@ -47,20 +55,29 @@ function App() {
                   buttonLink="/first"
                 />
               </Col>
+              </div>
             </Route>
             <Route path="/first">
+            <TopBar  />
+            <div className="App">
               <Col lg={4}>
                 <InformationForm/>
               </Col>
+              </div>
             </Route>
             <Route path="/profile">
-              <EditProfile/>
+            <TopBar rightText="National Cyber Security Event " rightLink={navLink}  />
+            <div className="App">
+              <AdminProfile/>
+              </div>
             </Route>
             <Route path="/table">
+            <TopBar rightText="National Cyber Security Event " rightLink={navLink}  />
+            <div className="App">
               <UserTable/>
+              </div>
             </Route>
           </Switch>
-      </div>
     </Router>
     </Fragment>
   );

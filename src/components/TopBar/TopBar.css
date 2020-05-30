@@ -9,3 +9,11 @@
     font-weight: bold;
     color: #f2c300;
   }
+
+  .navbar-dark .navbar-text{
+    color: #f2c300;
+  }
+
+  .navbar-dark .navbar-text a{
+    color: #5384f7;
+  }

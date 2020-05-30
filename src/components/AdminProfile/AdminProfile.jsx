@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
-import BoxBackground from '../BoxBackground';
-import './EditProfile.css';
-import FormField from '../FormField';
+import BoxBackground from '../BoxBackground/BoxBackground';
+import './AdminProfile.css';
+import FormField from '../FormField/FormField';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {Col, Container, Row} from 'react-bootstrap'
-import BlueBackground from '../BlueBackground';
+import BlueBackground from '../BlueBackground/BlueBackground';
 
-class EditProfile extends PureComponent { 
+class AdminProfile extends PureComponent { 
   onChange = (e) => {
     this[e.target.name] =  e.target.value.trim();
   };
@@ -103,4 +103,4 @@ class EditProfile extends PureComponent {
     )}
 }
 
-export default EditProfile;
+export default AdminProfile;
